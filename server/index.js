@@ -1,9 +1,7 @@
 require('dotenv').config();
 
-console.log('Client ID:', process.env.SPOTIFY_CLIENT_ID);
-console.log('Client Secret:', process.env.SPOTIFY_CLIENT_SECRET ? 'OK' : 'NÃO DEFINIDO');
-const axios = require('axios');
 
+const axios = require('axios');
 const express = require("express");
 const cors = require("cors");
 const { admin, db } = require("./firebase"); 
@@ -50,30 +48,6 @@ app.post("/usuarios", async (req, res) => {
   }
 });
 
-// Rota para gerar token do Spotify
-app.get('/spotify/token', async (req, res) => {
-  try {
-    const auth = Buffer.from(
-      `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
-    ).toString('base64');
-
-    const response = await axios.post(
-      'https://accounts.spotify.com/api/token',
-      new URLSearchParams({ grant_type: 'client_credentials' }),
-      {
-        headers: {
-          Authorization: `Basic ${auth}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      }
-    );
-
-    res.json({ accessToken: response.data.access_token });
-  } catch (error) {
-    console.error('Erro ao gerar token do Spotify:', error.response?.data || error.message);
-    res.status(500).json({ error: 'Erro ao gerar token do Spotify' });
-  }
-});
 
 // Inicia servidor na porta 3001
 app.listen(3001, () => {

@@ -8,7 +8,9 @@ const { admin, db } = require("./firebase");
 const { verificarToken } = require("./auth");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://urbanity.onrender.com']
+}));
 app.use(express.json());
 
 // Rota de login para obter o token do Firebase (Método GET)
@@ -50,6 +52,8 @@ app.post("/usuarios", async (req, res) => {
 
 
 // Inicia servidor na porta 3001
-app.listen(3001, () => {
-  console.log("Backend rodando na porta 3001");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Backend rodando na porta ${PORT}`);
 });

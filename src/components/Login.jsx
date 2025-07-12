@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import api from '../api'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       // Faz uma chamada para rota protegida no backend
-      const resp = await axios.get("http://localhost:3001/protegido", {
+      const resp = await api.get("/protegido", {
         headers: {
           Authorization: `Bearer ${token}`
         }

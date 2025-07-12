@@ -143,7 +143,7 @@ export default function SignUp(props) {
 
     // 4. Mensagem de sucesso e redirecionamento
     setSuccessMessage('Cadastro realizado com sucesso!');
-    setTimeout(() => navigate('/signin'), 2000);
+    setTimeout(() => navigate('/checkout'), 2000);
 
   } catch (error) {
     console.error("Erro no cadastro:", error);

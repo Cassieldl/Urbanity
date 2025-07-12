@@ -20,6 +20,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase'; 
+import api from '../api';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -131,7 +132,7 @@ export default function SignUp(props) {
     const token = await user.getIdToken();
 
     // 3. Salva os dados do usuário no backend (Firestore)
-    await axios.post("http://localhost:3001/usuarios", {
+    await api.post("/usuarios", {
       uid: user.uid,
       nome: name,
       email: user.email,

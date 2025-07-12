@@ -1,4 +1,4 @@
-import * as React from 'react';
+import api from '../api';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -107,7 +107,7 @@ export default function SignIn(props) {
       const idToken = await loginFirebase(email, password);
       localStorage.setItem("token", idToken);
 
-      const response = await axios.get("http://localhost:3001/protegido", {
+      const response = await axios.get("/protegido", {
         headers: {
           Authorization: `Bearer ${idToken}`,
         },

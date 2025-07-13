@@ -131,7 +131,7 @@ export default function SignUp(props) {
     // 2. Pega o token do usuário logado
     const token = await user.getIdToken();
 
-    // 3. Salva os dados do usuário no backend (Firestore)
+    // 3. Salva os dados do usuário no backend 
     await api.post("/usuarios", {
       uid: user.uid,
       nome: name,

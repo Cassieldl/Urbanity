@@ -14,7 +14,7 @@ import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon } from './components/CustomIcons';
 
-import { loginFirebase } from '../../../server/loginFirebase';
+import { loginFirebase } from '../signIn/components/loginFirebase';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',

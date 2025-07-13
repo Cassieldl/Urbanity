@@ -132,7 +132,7 @@ export default function SignUp(props) {
     const token = await user.getIdToken();
 
     // 3. Salva os dados do usuário no backend 
-    await api.post("/usuarios", {
+    await api.post("/api/usuarios", {
       uid: user.uid,
       nome: name,
       email: user.email,

@@ -8,7 +8,7 @@ export default defineConfig({
       '/api': {
         target: 'https://urbanity.onrender.com',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   } : undefined,

@@ -20,7 +20,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase'; 
-import api from '../api';
+import api from '../../api';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',

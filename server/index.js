@@ -8,9 +8,25 @@ const { verificarToken } = require("./auth");
 
 const app = express();
 
+const allowedOrigins = [
+  'https://urbanity.onrender.com',
+  'https://urbanity.vercel.app',
+  'https://urbanity-gfk20ltfb-cassieldls-projects.vercel.app' // esse é o que deu erro!
+];
+
 app.use(cors({
-  origin: ['https://urbanity.onrender.com', 'https://urbanity.vercel.app'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
 app.options('*', cors());
 
 app.use(express.json());

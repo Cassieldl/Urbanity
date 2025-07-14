@@ -6,23 +6,31 @@ const cors = require("cors");
 const { admin, db } = require("./firebase"); 
 const { verificarToken } = require("./auth");
 
-const app = express();
 
 const allowedOrigins = [
   'https://urbanity.onrender.com',
   'https://urbanity.vercel.app',
-  'https://urbanity-gfk20ltfb-cassieldls-projects.vercel.app' // esse é o que deu erro!
+  'https://urbanity-olive.vercel.app',
+  'http://localhost:5173'
 ];
 
-app.use(cors({
-  origin: true, // Permite qualquer origem
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 200
+};
 
-app.options('*', cors());
-
+app.use(cors(corsOptions));
+app.options("/usuarios", cors(corsOptions)); // 🔥 linha importante
 app.use(express.json());
 
 // Rota protegida

@@ -7,42 +7,9 @@ const { admin, db } = require("./firebase");
 const { verificarToken } = require("./auth");
 
 
-const allowedOrigins = [
-  'https://urbanity.onrender.com',
-  'https://urbanity.vercel.app',
-  'https://urbanity-olive.vercel.app'
-];
+const cors = require("cors");
+app.use(cors()); // libera tudo para testes
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  preflightContinue: false,
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
-app.options("/api/usuarios", cors(corsOptions)); // 🔥 linha importante
-app.use(express.json());
-
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin);
-  }
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
 
 // Rota protegida
 app.get("/protegido", async (req, res) => {

@@ -6,7 +6,7 @@ export default defineConfig({
   server: process.env.NODE_ENV === 'development' ? {
     proxy: {
       '/api': {
-        target: 'https://urbanity.onrender.com',
+        target: 'https://urbanity-production.up.railway.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

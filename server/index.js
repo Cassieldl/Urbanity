@@ -29,9 +29,15 @@ const corsOptions = {
   optionsSuccessStatus: 200
 };
 
-app.use(cors(corsOptions));
-app.options("/usuarios", cors(corsOptions)); // 🔥 linha importante
+app.options("*", cors(corsOptions));
+app.options("/api/usuarios", cors(corsOptions)); // 🔥 linha importante
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 
 // Rota protegida
 app.get("/protegido", async (req, res) => {
@@ -48,7 +54,7 @@ app.get("/protegido", async (req, res) => {
 });
 
 // Salvar usuário
-app.post("/usuarios", async (req, res) => {
+app.post("/api/usuarios", async (req, res) => {
   const authHeader = req.headers.authorization || "";
   const token = authHeader.split(" ")[1];
   if (!token) return res.status(401).send("Token ausente");

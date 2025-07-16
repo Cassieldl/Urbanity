@@ -1,21 +1,32 @@
 require('dotenv').config();
 
-const express = require("express");
-const cors = require("cors");
 const { admin, db } = require("./firebase");
 const { verificarToken } = require("./auth");
-
+const express = require("express");
+const cors = require("cors");
 const app = express();
 
-app.use(cors({
-  origin: ['https://urbanity.vercel.app', 'https://urbanity-olive.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "https://urbanity.vercel.app",
+      "https://urbanity-olive.vercel.app"
+    ];
 
-app.options('*', cors());
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.options("*", cors(corsOptions));
 
 
 // Rota protegida

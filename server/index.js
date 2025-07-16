@@ -1,21 +1,23 @@
 require('dotenv').config();
 
-const axios = require('axios');
 const express = require("express");
-const { admin, db } = require("./firebase"); 
-const { verificarToken } = require("./auth");
-
 const cors = require("cors");
+const { admin, db } = require("./firebase");
+const { verificarToken } = require("./auth");
+require('dotenv').config();
+
 const app = express();
+
 
 app.use(cors({
   origin: true, 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
 }));
 
-app.options('*', cors());
+app.options("*", cors()); 
+
 app.use(express.json());
 
 // Rota protegida

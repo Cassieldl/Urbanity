@@ -16,7 +16,6 @@ import { styled } from '@mui/material/styles';
 import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon } from './components/CustomIcons';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase'; 

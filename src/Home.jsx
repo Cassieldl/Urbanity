@@ -447,7 +447,7 @@ function Home() {
               </div>
 
               <div className="content tw-font-medium !tw-text-gray-300">
-                A Urbanity é uma empresa brasileira que desenvolve soluções digitais para o cotidiano urbano, focando em facilitar a vida das pessoas por meio de tecnologias inovadoras, como o aplicativo <a href="#" target="_blank" className="tw-font-medium tw-text-yellow-300">Chegaí</a>.
+                A Urbanity é uma empresa brasileira que desenvolve soluções digitais para o cotidiano urbano, focando em facilitar a vida das pessoas por meio de tecnologias inovadoras, como o aplicativo <a href="https://chegaiapp.web.app" target="_blank" className="tw-font-medium tw-text-yellow-300">Chegaí</a>.
               </div>
 
             </div>

@@ -154,6 +154,9 @@ export default function SignUp(props) {
       setGeneralError(error.response.data.error);
     } else {
       setSuccessMessage("Usuário cadastrado.");
+      setTimeout(() => {
+        navigate("/checkout"); 
+      }, 1500);
     }
   }
 };

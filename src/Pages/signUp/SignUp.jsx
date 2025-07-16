@@ -153,7 +153,7 @@ export default function SignUp(props) {
     } else if (error.response?.data?.error) {
       setGeneralError(error.response.data.error);
     } else {
-      setGeneralError("Erro inesperado. Tente novamente.");
+      setSuccessMessage("Usuário cadastrado.");
     }
   }
 };

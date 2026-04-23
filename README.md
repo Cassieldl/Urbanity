@@ -1,12 +1,45 @@
-# React + Vite
+#🌆 Urbanity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Urbanity é um projeto desenvolvido durante o curso técnico em Informática com a proposta de simular uma startup focada em soluções digitais para o cotidiano urbano.
 
-Currently, two official plugins are available:
+A ideia central é criar uma plataforma moderna que conecte pessoas, serviços e experiências dentro da cidade, utilizando tecnologia para simplificar interações e melhorar a experiência do usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#🚀 Proposta do Projeto
 
-## Expanding the ESLint configuration
+###O Urbanity nasce como um conceito de startup que busca:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Facilitar o acesso a serviços urbanos
+Centralizar informações relevantes para o dia a dia
+Melhorar a experiência digital de usuários em ambientes urbanos
+Explorar soluções escaláveis com foco em tecnologia moderna
+
+O projeto também serve como aplicação prática dos conhecimentos adquiridos ao longo do curso técnico.
+
+#🧠 Contexto Acadêmico
+
+###Este projeto foi desenvolvido como parte do curso técnico em Informática, com foco em:
+
+Desenvolvimento de sistemas
+Estruturação de aplicações reais
+Aplicação de conceitos de UI/UX
+Simulação de produto com visão de mercado (startup)
+
+#🛠️ Tecnologias Utilizadas
+HTML / CSS / JavaScript
+React
+Tailwind CSS
+Node.js 
+
+
+#📱 Produto em Destaque
+
+###O principal produto dentro do ecossistema Urbanity é o Chegaí, um aplicativo voltado para eventos e experiências urbanas, permitindo:
+
+Visualizar eventos
+Comprar ingressos
+Acompanhar atrações
+Interagir com o ambiente digital do evento
+
+#🎯 Objetivo
+
+Mais do que apenas um projeto acadêmico, o Urbanity busca simular um produto real, com potencial de evolução para uma solução aplicável no mercado.
